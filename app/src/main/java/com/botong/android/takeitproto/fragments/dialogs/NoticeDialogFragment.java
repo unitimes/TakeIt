@@ -10,6 +10,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.view.ViewPager;
 
 import com.botong.android.takeitproto.WriteHomeActivity;
+import com.botong.android.takeitproto.fragments.TabPagerAdapter;
 import com.botong.android.takeitproto.fragments.WriteFragment;
 
 /**
@@ -32,8 +33,10 @@ public class NoticeDialogFragment extends DialogFragment{
         super.onAttach(activity);
         try {
             ViewPager viewPager = ((WriteHomeActivity) activity).getViewPager();
-            activity.getFragmentManager().findFragmentById(viewPager.getCurrentItem());
-//            noticeDialogListener = viewPager.get;
+            TabPagerAdapter tabPagerAdapter = ((WriteHomeActivity) activity).getTabPagerAdapter();
+            int id = viewPager.getCurrentItem();
+            WriteFragment writeFragment = (WriteFragment) tabPagerAdapter.getItem(id);
+            noticeDialogListener = writeFragment;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement NoticeDialogListener");
         }

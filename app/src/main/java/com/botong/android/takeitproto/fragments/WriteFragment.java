@@ -1,6 +1,8 @@
 package com.botong.android.takeitproto.fragments;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -8,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.botong.android.takeitproto.R;
+import com.botong.android.takeitproto.WriteActivity;
 import com.botong.android.takeitproto.fragments.dialogs.NoticeDialogFragment;
 
 
@@ -37,12 +41,14 @@ public class WriteFragment extends Fragment implements NoticeDialogFragment.Noti
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
-
+        Intent intent = new Intent(dialog.getActivity(), WriteActivity.class);
+        dialog.getActivity().startActivity(intent);
+//        startActivity(intent);
     }
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
-
+        Toast.makeText(dialog.getActivity(), R.string.submit_completion, Toast.LENGTH_LONG).show();
     }
 
     private void showDialog(View v) {

@@ -21,5 +21,9 @@
     <string name="dialog_positvie_write_fragment">왜냐하면...</string>
     <string name="dialog_negative_write_fragment">알 거 없어!!</string>
     <string name="dialog_tag_write_fragment">write dialog</string>
+    <string name="title_activity_write">WriteActivity</string>
+    <string name="backward">뒤로</string>
+    <string name="complete">완료</string>
+    <string name="submit_completion">제출 완료 되었습니다.</string>
 
 </resources>
