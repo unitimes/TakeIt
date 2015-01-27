@@ -17,5 +17,9 @@
     <string name="real_time">실시간</string>
     <string name="weather">날씨</string>
     <string name="my">my</string>
+    <string name="dialog_question_write_fragment">왜 사직서를 쓰시려고요?</string>
+    <string name="dialog_positvie_write_fragment">왜냐하면...</string>
+    <string name="dialog_negative_write_fragment">알 거 없어!!</string>
+    <string name="dialog_tag_write_fragment">write dialog</string>
 
 </resources>

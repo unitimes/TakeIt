@@ -2,18 +2,21 @@ package com.botong.android.takeitproto.fragments;
 
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.botong.android.takeitproto.R;
+import com.botong.android.takeitproto.fragments.dialogs.NoticeDialogFragment;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WriteFragment extends Fragment {
+public class WriteFragment extends Fragment implements NoticeDialogFragment.NoticeDialogListener{
 
     public WriteFragment() {}
 
@@ -21,8 +24,35 @@ public class WriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_write, container, false);
+        View view = inflater.inflate(R.layout.fragment_write, container, false);
+        Button write = (Button) view.findViewById(R.id.btnWriteWriteFragment);
+        write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(v);
+            }
+        });
+        return view;
     }
 
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
 
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+
+    }
+
+    private void showDialog(View v) {
+        Bundle bundle = new Bundle();
+        bundle.putString("message", getString(R.string.dialog_question_write_fragment));
+        bundle.putString("positive", getString(R.string.dialog_positvie_write_fragment));
+        bundle.putString("negative", getString(R.string.dialog_negative_write_fragment));
+
+        DialogFragment dialogFragment = new NoticeDialogFragment();
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(getChildFragmentManager(), getString(R.string.dialog_tag_write_fragment));
+    }
 }

@@ -16,6 +16,10 @@ import com.botong.android.takeitproto.fragments.WriteFragment;
 
 public class WriteHomeActivity extends ActionBarActivity {
 
+    public ViewPager getViewPager() {
+        return viewPager;
+    }
+
     private ViewPager viewPager;
     private TabPagerAdapter tabPagerAdapter;
     private ActionBar actionBar;
